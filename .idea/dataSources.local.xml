@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails pennywise: development" uuid="6a4dbd19-2ca7-4362-86eb-0fa608e89bb4">
+      <user-name>pennywise_db</user-name>
+      <user-password>dffadfcbdfd9dfd9dfdddfc5dfd8dfcedf9bdf98df99</user-password>
+      <schema-pattern>pennywise.*</schema-pattern>
+      <default-schemas>pennywise.*</default-schemas>
+    </data-source>
+  </component>
+</project>

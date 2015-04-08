@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @register_item.description %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @register_item.date %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @register_item.value %>
+</p>
+
+<%= link_to 'Edit', edit_register_item_path(@register_item) %> |
+<%= link_to 'Back', register_items_path %>

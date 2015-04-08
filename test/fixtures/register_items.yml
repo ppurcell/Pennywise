@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  date: 2015-04-07
+  value: 9.99
+
+two:
+  description: MyText
+  date: 2015-04-07
+  value: 9.99
