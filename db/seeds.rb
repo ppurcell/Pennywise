@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Category.create(name: 'Groceries', description: 'Entries for General Food Expenses', color: 'Blue')
+Category.create(name: 'Utilities', description: 'Entries for Monthly Utilities and recurring costs', color: 'Purple')
+Category.create(name: 'Entertainment', description: 'Entries for things that are expendable', color: 'Red')
+Category.create(name: 'Misc', description: 'Entries for random expenses without a category', color: 'Green')

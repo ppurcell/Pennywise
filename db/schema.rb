@@ -11,25 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408020332) do
+ActiveRecord::Schema.define(version: 20150408213718) do
 
-  create_table "default_categories", force: true do |t|
-    t.string   "title"
+  create_table "categories", force: true do |t|
+    t.string   "name"
     t.text     "description"
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "register_items", force: true do |t|
-    t.text     "description"
+  create_table "entries", force: true do |t|
     t.date     "date"
-    t.decimal  "value",       precision: 10, scale: 0
+    t.integer  "category_id"
+    t.text     "description"
+    t.decimal  "amount",      precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id"
   end
 
-  add_index "register_items", ["category_id"], name: "index_register_items_on_category_id", using: :btree
+  add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
 
 end

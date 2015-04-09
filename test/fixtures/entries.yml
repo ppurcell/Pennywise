@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2015-04-08
+  category_id: 
+  description: MyText
+  amount: 9.99
+
+two:
+  date: 2015-04-08
+  category_id: 
+  description: MyText
+  amount: 9.99

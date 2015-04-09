@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @entry.date %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <% if !@entry.category.nil? %>
+      <%= @entry.category.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @entry.description %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @entry.amount %>
+</p>
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>
