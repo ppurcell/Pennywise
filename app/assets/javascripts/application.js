@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require mindmup-editabletable
+//= require editablegrid/editablegrid.js
+//= require editablegrid/editablegrid_utils.js
+//= require editablegrid/editablegrid_editors.js
+//= require editablegrid/editablegrid_renderers.js
+//= require editablegrid/editablegrid_validators.js
 //= require_tree .
