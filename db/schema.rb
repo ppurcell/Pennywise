@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20150408213718) do
     t.datetime "updated_at"
   end
 
+  create_table "default_categories", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "entries", force: true do |t|
     t.date     "date"
     t.integer  "category_id"
@@ -31,5 +39,16 @@ ActiveRecord::Schema.define(version: 20150408213718) do
   end
 
   add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
+
+  create_table "register_items", force: true do |t|
+    t.text     "description"
+    t.date     "date"
+    t.decimal  "value",       precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id"
+  end
+
+  add_index "register_items", ["category_id"], name: "index_register_items_on_category_id", using: :btree
 
 end

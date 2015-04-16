@@ -13,9 +13,9 @@
 
   <tbody>
   <% @entries.each do |entry| %>
-      <tr>
+      <tr id="<%=entry.category.id %>">
         <td><%= entry.date %></td>
-        <td>  <% if !entry.category.nil? %><%= entry.category.name %><%end%></td>
+        <td><% if !entry.category.nil? %><%= entry.category.id %><%end%></td>
         <td><%= entry.description %></td>
         <td><%= entry.amount %></td>
         <td><%= link_to 'Show', entry %></td>

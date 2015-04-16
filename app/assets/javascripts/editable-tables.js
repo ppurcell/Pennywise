@@ -2,34 +2,44 @@
 //$('#textAreaEditor').editableTableWidget({editor: $('<textarea>')});
 
 
-window.onload = function() {
-    editableGrid = new EditableGrid("DemoGridAttach");
-
-    // we build and load the metadata in Javascript
-    editableGrid.load({ metadata: [
-        { name: "name", datatype: "string", editable: true },
-        { name: "firstname", datatype: "string", editable: true },
-        { name: "age", datatype: "integer", editable: true },
-        { name: "height", datatype: "double(m,2)", editable: true },
-        { name: "country", datatype: "string", editable: true, values:
-        { 'Europe': { "be" : "Belgium", "fr" : "France", "uk" : "Great-Britain", "nl": "Nederland"},
-            'America': { "br" : "Brazil", "ca": "Canada", "us" : "USA" },
-            'Africa': { "ng" : "Nigeria", "za": "South-Africa", "zw" : "Zimbabwe" }
-        }
-        },
-        { name: "email", datatype: "email", editable: true },
-        { name: "freelance", datatype: "boolean", editable: true },
-        { name: "lastvisit", datatype: "date", editable: true }
-    ]});
-
-    // then we attach to the HTML table and render it
-    editableGrid.attachToHTMLTable('ledger_table');
-    editableGrid.renderGrid();
-}
-
-if($("#ledger_table").length > 0){alert('ALERT');}
+//window.onload = function() {
+//
+//}
 
 $(function()
 {
-   alert('ASD');
+    if($("#ledger_table").length <= 0){return;}
+
+    editableGrid = new EditableGrid("DemoGridAttach");
+
+    var metadata = [];
+    metadata.push({ name: "date", label: "DATE", datatype: "date", editable: true});
+    metadata.push({ name: "category", label:"CATEGORY", datatype: "string", editable: true});
+    metadata.push({ name: "description", label: "DESCRIPTION", datatype: "string", editable: true});
+    metadata.push({ name: "amount", label: "AMOUNT", datatype: "double($,2, dot, comma, 1)", editable: true});
+
+    metadata[1].values = {"categories":{}};
+    $.getJSON('/categories', function(data)
+    {
+        $.each(data, function(key, value)
+        {
+            metadata[1].values.categories[value.id] = value.name;
+        });
+        editableGrid.load({"metadata": metadata});
+        editableGrid.attachToHTMLTable('ledger_table');
+        editableGrid.renderGrid();
+
+        editableGrid.addCellValidator("amount", new CellValidator({
+            isValid: function(value) { return value == "" || (parseFloat(value) >= 16 && parseFloat(value) < 100); }
+        }));
+    });
+
+
+
+    $("#ledger_table td").change(function()
+        {
+            alert("Changed an item");
+        }
+    );
+
 });
