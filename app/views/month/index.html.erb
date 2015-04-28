@@ -1,31 +1,64 @@
-<h1>Monthly Ledger</h1>
+<div class="container">
+  <h1>Monthly Ledger</h1>
 
-<table id="ledger_table">
-  <thead>
-  <tr>
-    <th>Date</th>
-    <th>Category</th>
-    <th>Description</th>
-    <th>Amount</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-striped" id="ledger_table">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th colspan="1" class="hidden">Edit</th>
+          <th colspan="1" class="hidden">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @entries.each do |entry| %>
+            <tr id="<%= entry.category.id %>">
+              <td class="entry_date"><%= entry.date.strftime("%m/%d/%Y") %></td>
+              <td>
+                <% if !entry.category.nil? %><%= entry.category.id %>
+                <% end %></td>
+              <td class="editable"><%= entry.description %></td>
+              <td><%= entry.amount %></td>
+              <td><%= link_to edit_entry_path(entry) do %>
+                    <button type="button" class="btn btn-xs center-block" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </button>
+                <% end %></td>
+              <td>
+                <%= link_to entry, method: :delete, data: {confirm: 'Are you sure?'} do %>
+                    <button type="button" class="btn btn-xs center-block" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-remove-circle" style="color: #A60F0F;" aria-hidden="true"></span>
+                    </button>
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
 
-  <tbody>
-  <% @entries.each do |entry| %>
-      <tr id="<%=entry.category.id %>">
-        <td><%= entry.date %></td>
-        <td><% if !entry.category.nil? %><%= entry.category.id %><%end%></td>
-        <td><%= entry.description %></td>
-        <td><%= entry.amount %></td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+  </div>
+  <div class="row">
+    <div class="col-md-4x"><%= link_to 'New Entry', new_entry_path %></div>
 
-<br>
+  </div>
+  <!--<div class="control-group">-->
+    <!--<label for="date-picker-2" class="control-label">B</label>-->
 
-<%= link_to 'New Entry', new_entry_path %>
+    <!--<div class="controls">-->
+      <!--<div class="input-group">-->
+        <!--<input id="date-picker-2" type="text" class="date-picker form-control"/>-->
+        <!--<label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>-->
+
+        <!--</label>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+</div>
+
+
