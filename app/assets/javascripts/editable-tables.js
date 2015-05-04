@@ -46,20 +46,20 @@ $(function () {
     // $('#ledger_table').editableTableWidget({editor: $('<textarea>')});
 
 });
-$(document).ready(function () {
-        $(".date-picker").datepicker();
-        $('#ledger_table').DataTable(
-            {
-                "aoColumnDefs": [
-                    {'bSortable': false, 'aTargets': [4]},
-                    {'bSortable': false, 'aTargets': [5]}
-                ]
-            }
-        );
-    }
-
-
-)
+//$(document).ready(function () {
+//        $(".date-picker").datepicker();
+//        $('#ledger_table').DataTable(
+//            {
+//                "aoColumnDefs": [
+//                    {'bSortable': false, 'aTargets': [4]},
+//                    {'bSortable': false, 'aTargets': [5]}
+//                ]
+//            }
+//        );
+//    }
+//
+//
+//)
 
 
 

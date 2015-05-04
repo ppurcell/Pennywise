@@ -16,4 +16,6 @@
 //= require turbolinks
 //= require dataTables/jquery.dataTables
 //= require bootstrap.min
+//= require handlebars
+//= require_tree ./templates
 //= require_tree .
