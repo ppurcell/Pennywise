@@ -17,13 +17,16 @@
         </thead>
         <tbody>
         <% @entries.each do |entry| %>
-            <tr id="row-<%= entry.id %>">
-              <td class="entry_date"><%= entry.date.strftime("%m/%d/%Y")%></td>
+            <tr data-row-id="<%= entry.id %>" id="row-<%= entry.id %>">
+              <td class="entry_date"><%= entry.date.strftime("%m/%d/%Y") %></td>
               <td>
-                <% if !entry.category.nil? %><%= entry.category.id %>
-                <% end %></td>
-              <td class="editable"><%= entry.description %></td>
-              <td><%= entry.amount %></td>
+                <div class="entry_cat" data-category-id=<%= entry.category.id %>>
+                  <% if !entry.category.nil? %><%= entry.category.name %>
+                  <% end %>
+                </div>
+              </td>
+              <td class="entry_desc"><%= entry.description %></td>
+              <td class="entry_amt"><%= entry.amount %></td>
               <td class="inline-edit-btn">
                 <button type="button" class="btn btn-xs center-block" aria-label="Left Align">
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
