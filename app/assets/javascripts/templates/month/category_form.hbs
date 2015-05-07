@@ -1,5 +1,14 @@
-<select class="form-control">
-    {{#each this}}
-    <option value="{{id}}">{{name}}</option>
-    {{/each}}
-</select>
+<div class="btn-group btn-block category-select" style="width:100%">
+
+    <button type="button" class="btn btn-default btn-sm" aria-expanded="false"/>
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle hidden-xs" data-toggle="dropdown">
+        <span class="caret"/>
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu">
+        {{#each this}}
+            <li data-index="{{id}}"><a href="#">{{name}}</a></li>
+        {{/each}}
+    </ul>
+</div>
