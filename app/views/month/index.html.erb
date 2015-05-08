@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-fluid">
 
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div>
       <h1>Transactions</h1>
       <table class="table table-striped" id="ledger_table">
         <thead>
@@ -43,11 +43,12 @@
         <% end %>
         </tbody>
       </table>
-    </div>
 
-  </div>
-  <div class="row">
-    <div class="col-md-4x"><%= link_to 'New Entry', new_entry_path %></div>
+      <div class="row">
+        <div class="col-md-4x"><%= link_to 'New Entry', new_entry_path %></div>
+      </div>
+
+    </div>
 
   </div>
 
