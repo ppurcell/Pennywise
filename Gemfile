@@ -43,5 +43,6 @@ gem 'mysql2'
 
 gem 'jquery-datatables-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 
 gem 'handlebars_assets'

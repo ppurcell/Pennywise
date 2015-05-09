@@ -16,7 +16,8 @@ var MonthTableGen =
     }
 }
 
-var gui = function () {}
+var gui = function () {
+}
 
 gui.prototype.init = function () {
     var _this = this;
@@ -39,7 +40,7 @@ gui.prototype.init = function () {
             _this.unloadCategories(parentRow);
 
             $('#ledger_table').DataTable().row(parentRow).invalidate();
-            _this.updateEntry(rowId, dateValue,categoryIndex, descValue,amtValue );
+            _this.updateEntry(rowId, dateValue, categoryIndex, descValue, amtValue);
             parentRow.removeClass("currently-editing");
         }
         else {
@@ -116,35 +117,35 @@ gui.prototype.loadFields = function (parentRow) {
         });
 }
 
-gui.prototype.updateEntry = function(rowId, dateValue,categoryIndex, descValue,amtValue)
-{
+gui.prototype.updateEntry = function (rowId, dateValue, categoryIndex, descValue, amtValue) {
     var date = new Date(dateValue);
     var jsonData =
     {
         description: descValue,
         category_id: categoryIndex,
-        date: date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate(),
+        date: date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(),
         amount: amtValue
     }
 
     $.ajax(
-    {
-        data:JSON.stringify({entry:jsonData}),
-        url: '/entries/'+rowId+'.json',
-        Accept: 'application/json',
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        method:'PUT'
-    }).success(function(data) {
+        {
+            data: JSON.stringify({entry: jsonData}),
+            url: '/entries/' + rowId + '.json',
+            Accept: 'application/json',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            method: 'PUT'
+        }).success(function (data) {
 
-});
+        });
 }
 
 $(document).ready(function () {
-        var dTable = MonthTableGen;
-        var tableGUI = new gui();
-        tableGUI.init();
-        dTable.init();
-
+        if ($('#ledger_table').length > 0) {
+            var dTable = MonthTableGen;
+            var tableGUI = new gui();
+            tableGUI.init();
+            dTable.init();
+        }
     }
 )

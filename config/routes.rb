@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'overview/index'
+
   get 'month/index'
 
   resources :entries
