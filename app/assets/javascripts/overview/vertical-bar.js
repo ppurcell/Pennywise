@@ -39,7 +39,7 @@ function drawStuff() {
         region: '053', // Western Europe
         displayMode: 'markers',
         colorAxis: {colors: ['#e7711c', '#4374e0']}, // orange to blue
-        height:290,
+        height:240,
         'chartArea': {'width': '90%', 'height': '80%'}
     };
 

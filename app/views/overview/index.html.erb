@@ -1,34 +1,29 @@
+
+
 <div class="row">
   <div class="col col-md-12 col-lg-8">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Un-necessary Geographic Breakdown</div>
-      <div class="panel-body">
-        <div id="geo_chart" style="width: 100%; height: 300px; border-style:solid;border-width:2px;"></div>
-      </div>
+    <%= render 'recent_pic' %>
+  </div>
+  <div class="col col-md-12 col-lg-4" style="overflow: hidden; height:100%">
+    <h3>Latest Update:</h3>
+    <div ]>
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     </div>
   </div>
-  <div class="col col-md-12 col-lg-4">
-    <div class="col col-md-12 col-lg-12 panel panel-primary" style="padding:0px;">
-      <div class="panel-heading">Recent Locations</div>
-      <div class="panel-body">
-        <div id="recent_loc" style="width:100%; height: 80px;">
-          <ul>
-            <li>Auckland</li>
-            <li>Rotorua</li>
-            <li>Franz/Josef Glacier</li>
-            <li>ChristChurch</li>
-          </ul>
-        </div>
-      </div>
+</div>
+
+<div class="row">
+
+    <div class="col col-md-8 col-lg-8">
+      <%= render 'geo_chart' %>
     </div>
-    <div class="col col-md-12 col-lg-12 panel panel-primary" style="padding:0px;">
-      <div class="panel-body">
-        <div id="recent_pic" style="width:100%; border-style:solid;border-width:2px;display:inline-block;">
-            <img class="img-responsive" src="http://i.imgur.com/swyWWfQ.jpg" alt="This picture loads on non-supporting browsers.">
-        </div>
-      </div>
+    <div class="col col-md-4 col-lg-4" style="height:100%">
+      <%= render 'recent_loc' %>
     </div>
-  </div>
+
 </div>
 
 <div class="row">
