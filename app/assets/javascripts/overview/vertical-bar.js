@@ -1,5 +1,5 @@
 google.setOnLoadCallback(drawStuff);
-google.load("visualization", '1.1', {packages:['corechart']});
+google.load("visualization", '1.1', {packages:['corechart, geochart']});
 
 
 
@@ -23,22 +23,29 @@ function drawStuff() {
         ['Misc',    7]
     ]);
 
+    var geo_data = google.visualization.arrayToDataTable([
+        ['Location',   'Money Spent', 'Percentage'],
+        ['Rotorua',  312,1],
+        ['Cairns', 212,1],
+        ['Waiheke Island',  100,1],
+        ['Franz Josef Glacier', 120, 1],
+        ['Queestown', 100, 1],
+        ['62 Emily Place Auckland 1010', 200, 1]
+
+    ]);
+
+    var geo_options = {
+        sizeAxis: { minValue: 0, maxValue: 100 },
+        region: '053', // Western Europe
+        displayMode: 'markers',
+        colorAxis: {colors: ['#e7711c', '#4374e0']}, // orange to blue
+        height:290,
+        'chartArea': {'width': '90%', 'height': '80%'}
+    };
+
     var pieOptions = {
         'chartArea': {'width': '70%', 'height': '80%'},
         is3D: true
-    };
-
-    var options = {
-        width: 400,
-        height: 400,
-        legend: {
-            position: 'none',
-            maxLines: 3
-        },
-        bar: {
-            groupWidth: '75%'
-        },
-        isStacked: true
     };
 
     var options_fullStacked = {
@@ -60,12 +67,15 @@ function drawStuff() {
 
     var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));
     var vertChart = new google.visualization.BarChart(document.getElementById('dual_x_div'));
+    var geoChart = new google.visualization.GeoChart(document.getElementById('geo_chart'));
     vertChart.draw(data, options_fullStacked);
     pieChart.draw(pie_data, pieOptions);
+    geoChart.draw(geo_data, geo_options);
 };
 
 $(document).ready(function () {
     $(window).resize(function(){
         drawStuff();
     });
+    drawStuff();
 });
