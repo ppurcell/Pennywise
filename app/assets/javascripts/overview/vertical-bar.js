@@ -1,5 +1,5 @@
-google.setOnLoadCallback(drawStuff);
 google.load("visualization", '1.1', {packages: ['corechart, geochart']});
+
 
 
 function drawStuff() {
@@ -75,6 +75,7 @@ function drawStuff() {
 
 $(document).ready(function () {
     if ($('#piechart').length > 0 && $('#dual_x_div').length > 0 && $('#geo_chart').length > 0) {
+        google.setOnLoadCallback(drawStuff);
         $(window).resize(function () {
             drawStuff();
         });
