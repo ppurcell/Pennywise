@@ -1,15 +1,17 @@
-
-
 <div class="row">
   <div class="col col-md-12 col-lg-8">
-    <%= render partial: 'recent_pic',  locals:{img_url: @latest_article.picture1} %>
+    <% if !@latest_article.nil? %>
+        <%= render partial: 'recent_pic', locals: {img_url: @latest_article.picture1} %>
+    <% end %>
   </div>
   <div class="col col-md-12 col-lg-4" style="overflow: hidden; height:100%">
     <h3>Latest Update:</h3>
 
     <div>
-      <h4><%=@latest_article.location %> - <%=@latest_article.date %></h4>
-      <%=@latest_article.description%>
+      <% if !@latest_article.nil? %>
+          <h4><%= @latest_article.location %> - <%= @latest_article.date %></h4>
+          <%= simple_format @latest_article.description %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -21,12 +23,12 @@
 
 <div class="row">
 
-    <div class="col col-md-8 col-lg-8">
-      <%= render 'geo_chart' %>
-    </div>
-    <div class="col col-md-4 col-lg-4" style="height:100%">
-      <%= render partial: 'recent_loc', locals:{recent_locations: @recent_locations}  %>
-    </div>
+  <div class="col col-md-8 col-lg-8">
+    <%= render 'geo_chart' %>
+  </div>
+  <div class="col col-md-4 col-lg-4" style="height:100%">
+    <%= render partial: 'recent_loc', locals: {recent_locations: @recent_locations} %>
+  </div>
 
 </div>
 
