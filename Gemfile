@@ -50,3 +50,9 @@ gem 'handlebars_assets'
 gem 'fancybox2-rails', '~> 0.2.8'
 
 gem 'will_paginate'
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+  ruby "1.9.3p545"
+end
