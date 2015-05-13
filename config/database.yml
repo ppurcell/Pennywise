@@ -21,15 +21,15 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: db/test.sqlite3
+#test:
+#  <<: *default
+#  database: db/test.sqlite3
 
 #production:
 #  <<: *default
 #  database: db/production.sqlite3
 
-default: &default
+production:
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
