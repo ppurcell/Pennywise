@@ -54,5 +54,5 @@ gem 'will_paginate'
 group :production do
   gem 'rails_12factor'
   gem 'pg'
-  ruby "1.9.3p545"
+  ruby "1.9.3"
 end
