@@ -1,0 +1,37 @@
+<h1>Listing journal_articles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Picture1</th>
+      <th>Picture2</th>
+      <th>Picture3</th>
+      <th>Picture4</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @journal_articles.each do |journal_article| %>
+      <tr>
+        <td><%= journal_article.location %></td>
+        <td><%= journal_article.date %></td>
+        <td><%= journal_article.description %></td>
+        <td><%= journal_article.picture1 %></td>
+        <td><%= journal_article.picture2 %></td>
+        <td><%= journal_article.picture3 %></td>
+        <td><%= journal_article.picture4 %></td>
+        <td><%= link_to 'Show', journal_article %></td>
+        <td><%= link_to 'Edit', edit_journal_article_path(journal_article) %></td>
+        <td><%= link_to 'Destroy', journal_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Journal article', new_journal_article_path %>

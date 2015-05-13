@@ -25,12 +25,13 @@ function drawStuff() {
 
     var geo_data = google.visualization.arrayToDataTable([
         ['Location',   'Money Spent', 'Percentage'],
-        ['Rotorua',  312,1],
-        ['Cairns', 212,1],
-        ['Waiheke Island',  100,1],
-        ['Franz Josef Glacier', 120, 1],
-        ['Queestown', 100, 1],
-        ['62 Emily Place Auckland 1010', 200, 1]
+        ['Rotorua',  312,5],
+        ['Cairns', 212,5],
+        ['Waiheke Island',  100,5],
+        ['Franz Josef Glacier', 120, 5],
+        ['Queenstown', 100, 5],
+        ['Wellington', 100, 5],
+        ['Sydney', 100, 5],
 
     ]);
 

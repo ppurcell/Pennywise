@@ -1,14 +1,14 @@
 <div class="panel panel-primary">
-<div class="panel-heading">Recent Locations</div>
-<div class="panel-body">
-  <div id="recent_loc" style="width:100%; height: 250px;border-style:solid;border-width:2px; padding:30px;">
-    <ul style="font-size: large;">
-      <li style="padding-bottom:10px;">Auckland</li>
-      <li style="padding-bottom:10px;">Rotorua</li>
-      <li style="padding-bottom:10px;">Franz/Josef Glacier</li>
-      <li style="padding-bottom:10px;">ChristChurch</li>
-      <li style="padding-bottom:10px;">Cairns</li>
-    </ul>
+  <div class="panel-heading">Recent Locations</div>
+  <div class="panel-body">
+    <div id="recent_loc" style="width:100%; height: 250px;border-style:solid;border-width:2px; padding:30px;">
+      <ul style="font-size: large;">
+        <% recent_locations.each do |location| %>
+            <% if !location.location.nil? && location.location.size > 0 %>
+                <li style="padding-bottom:10px;"><%= location.location %></li>
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
 </div>

@@ -1,0 +1,50 @@
+<% @journal_articles.each do |journal_article| %>
+    <% if (@odd_row) %>
+        <div class="row">
+          <div class="col col-md-6 col-sm-6 col-xs-3">
+            <%= render partial: 'article_img', locals: {picture_url: journal_article.picture1} %>
+          </div>
+          <div class="col col-md-2 col-sm-3 col-xs-3">
+            <%= render partial: 'article_img', locals: {picture_url: journal_article.picture2} %>
+          </div>
+          <div class="col col-md-2 col-sm-3 col-xs-3">
+            <%= render partial: 'article_img', locals: {picture_url: journal_article.picture3} %>
+          </div>
+          <div class="col col-md-2 col-sm-3 col-xs-3">
+            <%= render partial: 'article_img', locals: {picture_url: journal_article.picture4} %>
+          </div>
+          <div class="col col-md-6 col-sm-12 col-xs-12">
+            <h3><%= journal_article.location %> - <%= journal_article.date %></h3>
+
+            <p><%= simple_format journal_article.description %></p>
+          </div>
+        </div>
+    <% else %>
+        <div class="row">
+          <div class="col col-md-2 col-sm-3 col-xs-3">
+            <%= render partial: 'article_img', locals: {picture_url: journal_article.picture1} %>
+          </div>
+
+          <div class="col col-md-2 col-sm-3 col-xs-3">
+            <%= render partial: 'article_img', locals: {picture_url: journal_article.picture2} %>
+          </div>
+
+          <div class="col col-md-2 col-sm-3 col-xs-3">
+            <%= render partial: 'article_img', locals: {picture_url: journal_article.picture3} %>
+          </div>
+          <div class="col col-md-6 col-sm-3 col-xs-3 pull-right">
+            <%= render partial: 'article_img', locals: {picture_url: journal_article.picture1} %>
+          </div>
+          <div class="col col-md-6 col-sm-12 pull-left">
+            <h3><%= journal_article.location %> - <%= journal_article.date %></h3>
+            <p><%= simple_format journal_article.description %></p>
+          </div>
+        </div>
+    <% end %>
+    <% @odd_row = !@odd_row %>
+    <div class="row" style="border-style:solid;border-width:2px;margin: 25px 0px 25px 0px;">
+      <div class="col col-md-12"></div>
+    </div>
+<% end %>
+
+<div class="col col-md-2 center-block" style="float:none;margin:0 auto;"><%= will_paginate @journal_articles %></div>

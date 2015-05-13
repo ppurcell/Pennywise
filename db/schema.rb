@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408213718) do
+ActiveRecord::Schema.define(version: 20150513094957) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -19,14 +19,7 @@ ActiveRecord::Schema.define(version: 20150408213718) do
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "default_categories", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "color"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.decimal  "estimate",    precision: 8, scale: 2
   end
 
   create_table "entries", force: true do |t|
@@ -36,19 +29,22 @@ ActiveRecord::Schema.define(version: 20150408213718) do
     t.decimal  "amount",      precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "city"
+    t.string   "location"
   end
 
   add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
 
-  create_table "register_items", force: true do |t|
-    t.text     "description"
+  create_table "journal_articles", force: true do |t|
+    t.string   "location"
     t.date     "date"
-    t.decimal  "value",       precision: 10, scale: 0
+    t.text     "description"
+    t.string   "picture1"
+    t.string   "picture2"
+    t.string   "picture3"
+    t.string   "picture4"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id"
   end
-
-  add_index "register_items", ["category_id"], name: "index_register_items_on_category_id", using: :btree
 
 end

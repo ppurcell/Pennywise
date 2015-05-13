@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'journal/index'
+
+  resources :journal_articles
+
   get 'overview/index'
 
   get 'month/index'

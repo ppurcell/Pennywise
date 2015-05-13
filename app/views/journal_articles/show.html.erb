@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @journal_article.location %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @journal_article.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @journal_article.description %>
+</p>
+
+<p>
+  <strong>Picture1:</strong>
+  <%= @journal_article.picture1 %>
+</p>
+
+<p>
+  <strong>Picture2:</strong>
+  <%= @journal_article.picture2 %>
+</p>
+
+<p>
+  <strong>Picture3:</strong>
+  <%= @journal_article.picture3 %>
+</p>
+
+<p>
+  <strong>Picture4:</strong>
+  <%= @journal_article.picture4 %>
+</p>
+
+<%= link_to 'Edit', edit_journal_article_path(@journal_article) %> |
+<%= link_to 'Back', journal_articles_path %>

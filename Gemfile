@@ -46,3 +46,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 
 gem 'handlebars_assets'
+
+gem 'fancybox2-rails', '~> 0.2.8'
+
+gem 'will_paginate'
