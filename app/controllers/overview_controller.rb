@@ -6,7 +6,7 @@ class OverviewController < ApplicationController
 
   respond_to :json
   def pie_data
-  @entries = Entry.joins(:category).select('sum(amount) as total, name, category_id as id, estimate').group(:category_id)
+  @entries = Entry.joins(:category).select('sum(amount) as total, name, category_id as id, estimate').group(:category_id, :name)
     respond_with(@entries)
   end
 end
