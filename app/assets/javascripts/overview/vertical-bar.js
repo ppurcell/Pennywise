@@ -80,5 +80,10 @@ $(document).ready(function () {
             drawStuff();
         });
         drawStuff();
+
+        $('a.fancy_box_container').fancybox({
+            'titleShow'     : false
+        });
+
     }
 });

@@ -7,6 +7,8 @@
         <tr>
           <th>Date</th>
           <th>Category</th>
+          <th>City</th>
+          <th>Location</th>
           <th>Description</th>
           <th>Amount</th>
           <th colspan="1" class="hidden">Inline-Edit</th>
@@ -16,16 +18,18 @@
         <tbody>
         <% @entries.each do |entry| %>
             <tr data-row-id="<%= entry.id %>" id="row-<%= entry.id %>">
-              <td class="entry_date"><%= entry.date.strftime("%m/%d/%Y") %></td>
+              <td class="entry_date" style="width:100px;"><%= entry.date.strftime("%m/%d/%Y") %></td>
               <td>
                 <div class="entry_cat" data-category-id=<%= entry.category.id %>>
                   <% if !entry.category.nil? %><%= entry.category.name %>
                   <% end %>
                 </div>
               </td>
+              <td class="entry_city"><%= entry.city %></td>
+              <td class="entry_loc"><%= entry.location %></td>
               <td class="entry_desc"><%= entry.description %></td>
-              <td class="entry_amt"><%= entry.amount %></td>
-              <td class="inline-edit-btn">
+              <td class="entry_amt" style="width:1%;"><%= entry.amount %></td>
+              <td class="inline-edit-btn" style="width:5px;">
                 <button type="button" class="btn btn-xs center-block" aria-label="Left Align">
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </button>

@@ -18,5 +18,6 @@
 //= require dataTables/jquery.dataTables
 //= require bootstrap.min
 //= require handlebars
+//= require fancybox
 //= require_tree ./templates
 //= require_tree .

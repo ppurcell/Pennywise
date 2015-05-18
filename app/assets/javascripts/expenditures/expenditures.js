@@ -9,8 +9,7 @@ var MonthTableGen =
         $('#ledger_table').DataTable(
             {
                 "aoColumnDefs": [
-                    {'bSortable': false, 'aTargets': [4]},
-                    {'bSortable': false, 'aTargets': [5]}
+
                 ]
             });
     }
@@ -38,9 +37,15 @@ gui.prototype.init = function () {
             parentRow.find('.entry_amt').html(amtValue);
             //Category
             _this.unloadCategories(parentRow);
+            //City
+            var cityValue = parentRow.find('#gen-city-input-' + rowId).val();
+            parentRow.find('.entry_city').html(cityValue);
+            //Location
+            var locValue = parentRow.find('#gen-loc-input-' + rowId).val();
+            parentRow.find('.entry_loc').html(locValue);
 
             $('#ledger_table').DataTable().row(parentRow).invalidate();
-            _this.updateEntry(rowId, dateValue, categoryIndex, descValue, amtValue);
+            _this.updateEntry(rowId, dateValue, categoryIndex, descValue, amtValue, cityValue, locValue);
             parentRow.removeClass("currently-editing");
         }
         else {
@@ -90,6 +95,26 @@ gui.prototype.loadDescription = function (parentRow, rowId) {
     descCell.html(descTemplate);
 }
 
+gui.prototype.loadCity = function (parentRow, rowId) {
+    var descCell = parentRow.find('.entry_city');
+    var descTemplate = HandlebarsTemplates['month/input_form']({
+        row_id: rowId,
+        value: descCell.html(),
+        input_type: 'city'
+    });
+    descCell.html(descTemplate);
+}
+
+gui.prototype.loadLocation = function (parentRow, rowId) {
+    var descCell = parentRow.find('.entry_loc');
+    var descTemplate = HandlebarsTemplates['month/input_form']({
+        row_id: rowId,
+        value: descCell.html(),
+        input_type: 'loc'
+    });
+    descCell.html(descTemplate);
+}
+
 gui.prototype.loadAmount = function (parentRow, rowId) {
     var amtCell = parentRow.find('.entry_amt');
     var descTemplate = HandlebarsTemplates['month/input_form']({
@@ -113,18 +138,22 @@ gui.prototype.loadFields = function (parentRow) {
             _this.loadDate(parentRow, rowId);
             _this.loadAmount(parentRow, rowId);
             _this.loadDescription(parentRow, rowId);
+            _this.loadCity(parentRow, rowId);
+            _this.loadLocation(parentRow, rowId);
 
         });
 }
 
-gui.prototype.updateEntry = function (rowId, dateValue, categoryIndex, descValue, amtValue) {
+gui.prototype.updateEntry = function (rowId, dateValue, categoryIndex, descValue, amtValue, cityValue, locValue) {
     var date = new Date(dateValue);
     var jsonData =
     {
         description: descValue,
         category_id: categoryIndex,
         date: date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(),
-        amount: amtValue
+        amount: amtValue,
+        city: cityValue,
+        location: locValue
     }
 
     $.ajax(
