@@ -11,6 +11,14 @@
       <%= @entry.category.name %>
   <% end %>
 </p>
+<p>
+  <strong>City:</strong>
+  <%= @entry.city %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @entry.location %>
+</p>
 
 <p>
   <strong>Description:</strong>
@@ -23,4 +31,4 @@
 </p>
 
 <%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+<%= link_to 'Back', month_index_path %>

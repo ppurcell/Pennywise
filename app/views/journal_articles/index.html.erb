@@ -1,6 +1,6 @@
 <h1>Listing journal_articles</h1>
 
-<table>
+<table id="journal_articles_table">
   <thead>
     <tr>
       <th>Location</th>
@@ -17,7 +17,7 @@
   <tbody>
     <% @journal_articles.each do |journal_article| %>
       <tr>
-        <td><%= journal_article.location %></td>
+        <td ><%=journal_article.location %></td>
         <td><%= journal_article.date %></td>
         <td><%= journal_article.description %></td>
         <td><%= journal_article.picture1 %></td>
