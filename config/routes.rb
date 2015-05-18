@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :journal_articles
 
   get 'overview/index'
+  get 'overview/pie_data'
 
   get 'month/index'
 
