@@ -18,13 +18,14 @@ overview.prototype.getJournalLocationData = function (callback) {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             method: 'GET'
-        }).success(function (data) {
+        }).success(function (data,status) {
             var i = 0;
             for (i; i < data.length; i++) {
                 dataArr.push([data[i].location, Math.random() * 10, 1, data[i].date]);
             }
             _this.geoChartData = dataArr;
-            callback();
+            if(status=='success'){callback();}
+
         });
 }
 
@@ -41,13 +42,13 @@ overview.prototype.getCategoryData = function (callback) {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             method: 'GET'
-        }).success(function (data) {
+        }).success(function (data, status) {
             //var i = 0;
            // for (i; i < data.length; i++) {
             //    dataArr.push([data[i].location, Math.random() * 10, 1, data[i].date]);
            // }
             _this.categoryData = data;
-            callback();
+            if(status=='success'){callback();}
         });
 }
 
