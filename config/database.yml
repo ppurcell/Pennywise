@@ -9,14 +9,23 @@
 #  pool: 5
 #  timeout: 5000
 
+#development:
+#  adapter: mysql2
+#  encoding: utf8
+#  database: pennywise
+#  username: pennywise_db
+#  password: Password123
+#  host: 127.0.0.1
+#  port: 3306
+
 development:
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   database: pennywise
   username: pennywise_db
-  password: Password123
+  password: asdf1234
   host: 127.0.0.1
-  port: 3306
+  port: 5432
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
