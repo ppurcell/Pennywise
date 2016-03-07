@@ -8,8 +8,6 @@ Rails.application.routes.draw do
 
   get 'overview/pie_data'
 
-
-
   root 'overview#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
