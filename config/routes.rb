@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  get 'journal/index'
 
-  resources :journal_articles
+  get 'journal', to: 'journal#index'
+  get 'month', to: 'month#index'
+  get 'overview', to: 'overview#index'
 
-  get 'overview/index'
+  resources :journal_articles, :entries, :categories
+
   get 'overview/pie_data'
 
-  get 'month/index'
 
-  resources :entries
-
-  resources :categories
 
   root 'overview#index'
 
