@@ -26,9 +26,9 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="<%= 'active' if params[:controller] == 'overview' %>"><%= link_to 'Overview', overview_path %></li>
-              <!--<li class="<%= 'active' if params[:controller] == 'month' %>"><%= link_to 'Expenditures', month_index_path %></li>-->
+              <!--<li class="<%= 'active' if params[:controller] == 'month' %>"><%= link_to 'Expenditures', month_path %></li>-->
               <!--<li class="<%= 'active' if params[:controller] == 'categories' %>"><%= link_to 'Categories', categories_path %></li>-->
-              <li class="<%= 'active' if params[:controller] == 'journal' %>"><%= link_to 'Journal', journal_index_path %></li>
+              <li class="<%= 'active' if params[:controller] == 'journal' %>"><%= link_to 'Journal', journal_path %></li>
               <!--<li class="disabled"><a href="#">Account</a></li>-->
             </ul>
           </div>
@@ -38,8 +38,9 @@
     </div>
   </div>
   <div class=row>
-    <div class="col col-md-10 col-md-offset-3" ><h3>"All journeys have secret destinations of which the traveler is unaware."</h3></div>
+    <div class="col col-md-10 col-md-offset-3" ></div>
     <div class="col col-md-offset-1 col-md-10" style="padding-left:5%;padding-right:5%">
+      <div style="text-align:center;" ><h3>"All journeys have secret destinations of which the traveler is unaware."</h3></div>
 
       <div class="row" style="border-style:solid;border-width:2px;margin-bottom:20px">
         <div class="col col-md-12">
