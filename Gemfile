@@ -56,3 +56,7 @@ gem 'pg'
 group :production do
   ruby "1.9.3"
 end
+
+group :development do
+  ruby "2.1.5"
+end
